@@ -2,46 +2,67 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>cerrajeria newen</title>
     <style>
-        /* Reset básico para fullscreen */
+        /* Reset completo para fullscreen */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden; /* Elimina barras de scroll */
+            overflow: hidden;
+            position: fixed; /* Evita cualquier scroll */
         }
         
         /* Contenedor de la imagen */
         .imagen-container {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #000; /* Fondo negro si hay bordes */
+            background-color: #000;
         }
         
-        /* Imagen para PC (predeterminada) */
+        /* Estilo para la imagen */
         .imagen-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Ajusta sin recortar */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cubre todo el espacio recortando si es necesario */
+            object-position: center center; /* Centra la parte importante de la imagen */
         }
         
-        /* Cambio a imagen móvil en dispositivos estrechos */
-        @media (max-aspect-ratio: 1/1) {
+        /* Para dispositivos con orientación vertical (móviles) */
+        @media (orientation: portrait) {
             .imagen-container img {
-                content: url("pc2.png"); /* Ruta a tu imagen móvil */
+                object-fit: contain; /* Muestra toda la imagen sin recortar */
+                /* O usa cover si prefieres que ocupe todo pero se recorte */
             }
         }
     </style>
 </head>
 <body>
     <div class="imagen-container">
-        <img src="pc2.png" alt="Contenido visual">
+        <!-- Cambia la imagen según el dispositivo -->
+        <img src="pc2.png" alt="Contenido visual" id="responsive-image">
     </div>
+
+    <script>
+        // Opcional: Cambiar dinámicamente la imagen según el tamaño
+        window.addEventListener('resize', function() {
+            const image = document.getElementById('responsive-image');
+            if (window.innerWidth < window.innerHeight) {
+                // Dispositivo en vertical (móvil)
+                image.src = "mobile-image.png"; // Ruta a tu imagen móvil
+            } else {
+                // Dispositivo en horizontal (PC/tablet)
+                image.src = "pc2.png";
+            }
+        });
+        
+        // Ejecutar al cargar
+        window.dispatchEvent(new Event('resize'));
+    </script>
 </body>
 </html>
