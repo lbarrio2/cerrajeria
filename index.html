@@ -23,6 +23,7 @@
             height: 100%;
             overflow-x: hidden;
             font-family: Arial, sans-serif;
+            background-color: #000; /* Fondo negro para mejor contraste */
         }
         
         .image-container {
@@ -32,38 +33,37 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            position: relative;
         }
         
-        #headerimg, #responsive-image, #inicio, #quien {
+        /* Estilo para todas las imágenes */
+        .image-container img {
             max-width: 100%;
             width: auto;
             height: auto;
             display: block;
-        }
-        
-        .image-container img {
             margin-bottom: 20px;
         }
         
-        /* Contenedor relativo para la imagen de urgencias */
-        .urgencias-container {
+        /* Contenedor especial para urgencias con posición relativa */
+        .urgencias-wrapper {
             position: relative;
-            display: inline-block;
+            display: flex;
+            justify-content: center;
             width: 100%;
+            margin-bottom: 20px;
         }
         
-        /* Botón de llamada sobre urgencias */
+        /* Botón de llamada de urgencia */
         .llamar-urgencia {
             position: absolute;
-            bottom: 20%; /* Posición vertical (ajustar según necesidad) */
+            bottom: 20%;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(200, 0, 0, 0.8);
             color: white;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
             text-decoration: none;
             cursor: pointer;
@@ -72,6 +72,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             border: 2px solid white;
             animation: pulse 1.5s infinite;
+            white-space: nowrap;
         }
         
         .llamar-urgencia:hover {
@@ -81,16 +82,15 @@
         
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(200, 0, 0, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(200, 0, 0, 0); }
+            70% { box-shadow: 0 0 0 10px rgba(200, 0, 0, 0); }
             100% { box-shadow: 0 0 0 0 rgba(200, 0, 0, 0); }
         }
         
         @media (max-width: 768px) {
             .llamar-urgencia {
-                font-size: 18px;
+                font-size: 16px;
                 padding: 10px 20px;
                 bottom: 15%;
-                width: 90%;
             }
         }
     </style>
@@ -98,17 +98,18 @@
 <body>
     <div class="image-container">
         <a href="https://www.cerrajerianewen.com/quien/quien.html" target="_blank">
-            <img src="3.png" alt="" id="quien">
+            <img src="3.png" alt="Quiénes somos">
         </a>
         
-        <div class="urgencias-container">
-            <img src="urgencias.png" alt="Servicio de urgencias" id="responsive-image">
+        <!-- Contenedor para urgencias con botón -->
+        <div class="urgencias-wrapper">
+            <img src="urgencias.png" alt="Servicio de urgencias 24 horas">
             <a href="tel:+543412158780" class="llamar-urgencia">
                 📞 LLAMAR URGENCIA: +54 341 2158780
             </a>
         </div>
         
-        <img src="body1.png" alt="" id="">
+        <img src="body1.png" alt="Servicios de cerrajería">
     </div>
 </body>
 </html>
