@@ -67,15 +67,17 @@
     
 </head>
 <body>
-    <div>
-        <!-- Enlace tel: con E.164 -->
-        <a href="tel:+543412158780">Llamar al +543412158780 CERRAJERIA NEWEN</a> <!-- Visual con formato, pero el href en E.164 -->
-        
-        <!-- Número oculto para rastreo (E.164) -->
-        <div hidden aria-hidden="true">
-            +543412158780
-        </div>
-    </div>
+ <div class="image-container">
+  <img src="header1.png" alt="+543412158780" id="headerimg">
+  <div class="overlay-text" id="phoneOverlay"></div>
+</div>
+
+<script>
+  // Mostrar el número del 'alt' en el overlay
+  const img = document.getElementById('headerimg');
+  const overlay = document.getElementById('phoneOverlay');
+  overlay.textContent = img.alt;
+</script>
     <div class="imagen-container">
         <img src="pc.png" alt="Contenido visual" id="responsive-image">
     </div>
