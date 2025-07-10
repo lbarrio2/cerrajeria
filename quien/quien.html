@@ -1,1 +1,109 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-404833313"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-404833313');
+      gtag('config', 'AW-404833313/QcbjCOmH0esaEKGIhcEB', {
+        'phone_conversion_number': '3412158780'
+      });
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cerrajeria newen</title>
+    <style>
+        /* Reset básico */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+        
+        /* Contenedor principal */
+        .imagen-container {
+            min-width: 100%;
+            min-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #000;
+            position: relative; /* Añadido para el overlay */
+        }
+        
+        /* Estilo para la imagen principal */
+        .imagen-container img {
+            width: auto;
+            height: auto;
+            max-width: none;
+            max-height: none;
+            display: block;
+        }
+        
+        /* Overlay del número de teléfono */
+        .overlay-text {
+            position: absolute;
+            top: 20px; /* Ajusta según necesites */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+        
+        /* Para móviles */
+        @media (max-width: 768px) {
+            .imagen-container img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        /* Para PC */
+        @media (min-width: 769px) {
+            .imagen-container img {
+                height: 100%;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="imagen-container">
+        <!-- Imagen principal (2.png) -->
+        <img src="2.png" alt="+543412158780" id="responsive-image">
+        
+        <!-- Overlay con el número de teléfono -->
+        <div class="overlay-text" id="phoneOverlay"></div>
+    </div>
+
+    <script>
+      // Mostrar el número del 'alt' en el overlay
+      const img = document.getElementById('responsive-image');
+      const overlay = document.getElementById('phoneOverlay');
+      overlay.textContent = img.alt;
+      
+      // Opcional: Hacer el número clickeable para llamar
+      overlay.style.cursor = 'pointer';
+      overlay.addEventListener('click', function() {
+          if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+              window.location.href = `tel:${img.alt.replace(/\D/g, '')}`;
+          } else {
+              navigator.clipboard.writeText(img.alt);
+              alert(`Número copiado: ${img.alt}`);
+          }
+      });
+    </script>
+</body>
+</html>
