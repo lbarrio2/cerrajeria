@@ -2,80 +2,60 @@
 <html lang="es">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-404833313"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-404833313');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-404833313"></script>
     <script>
-  gtag('config', 'AW-404833313/QcbjCOmH0esaEKGIhcEB', {
-    'phone_conversion_number': '3412158780'
-  });
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cerrajeria newen</title>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-404833313');
+    </script>
+    <script>
+      gtag('config', 'AW-404833313/QcbjCOmH0esaEKGIhcEB', {
+        'phone_conversion_number': '+543412158780'
+      });
+    </script>
+    
     <style>
-        /* Reset básico */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: auto; /* Permite scroll */
+            overflow-x: hidden;
         }
         
-        /* Contenedor principal */
-        .imagen-container {
-            min-width: 100%;
-            min-height: 100%;
+        .image-container {
+            width: 100%;
+            height: 100%;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: flex-start; /* Alineación arriba para scroll */
-            background-color: #000;
         }
         
-        /* Estilo para la imagen */
-        .imagen-container img {
-            width: auto;
+        #headerimg, #responsive-image {
+            width: 100%;
+            max-width: 100%;
             height: auto;
-            max-width: none; /* Elimina limitación de tamaño */
-            max-height: none;
             display: block;
         }
         
-        /* Para móviles */
-        @media (max-width: 768px) {
-            .imagen-container img {
-                width: 100%; /* Ocupa el ancho completo */
-                height: auto; /* Altura proporcional */
-            }
-        }
-        
-        /* Para PC */
-        @media (min-width: 769px) {
-            .imagen-container img {
-                height: 100%; /* Ocupa altura completa */
-                width: auto; /* Ancho proporcional */
-            }
+        #inicio, #quien {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
         }
     </style>
-    
 </head>
 <body>
- <div class="image-container">
-<img src="header1.png" alt="+543412158780" id="headerimg">
-      <a href="www.cerrajerianewen.com" target="_blank">
-  <img src="4.png" alt="" id="inicio">
-          </a>
-     <a href="www.cerrajerianewen.com/quien/quien.html" target="_blank">
-     <img src="5.png" alt="" id="quien">
-</a>
-
+    <div class="image-container">
+        <img src="header1.png" alt="+543412158780" id="headerimg">
+        <a href="www.cerrajerianewen.com" target="_blank">
+            <img src="4.png" alt="" id="inicio">
+        </a>
+        <a href="www.cerrajerianewen.com/quien/quien.html" target="_blank">
+            <img src="5.png" alt="" id="quien">
+        </a>
         <img src="pc.png" alt="Contenido visual" id="responsive-image">
     </div>
 </body>
