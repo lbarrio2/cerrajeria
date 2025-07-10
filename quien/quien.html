@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,33 +23,39 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
+            overflow-x: hidden;
+            background-color: #000;
         }
         
         /* Contenedor principal */
         .imagen-container {
-            min-width: 100%;
-            min-height: 100%;
+            width: 100%;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            background-color: #000;
-            position: relative; /* Añadido para el overlay */
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
         }
         
-        /* Estilo para la imagen principal */
+        /* Estilo para las imágenes */
         .imagen-container img {
+            max-width: 100%;
             width: auto;
             height: auto;
-            max-width: none;
-            max-height: none;
             display: block;
+        }
+        
+        /* Asegura que la imagen principal ocupe el ancho completo */
+        #responsive-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
         }
         
         /* Overlay del número de teléfono */
         .overlay-text {
-            position: absolute;
-            top: 20px; /* Ajusta según necesites */
+            position: fixed;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             color: white;
@@ -60,31 +65,31 @@
             background: rgba(0, 0, 0, 0.5);
             padding: 5px 15px;
             border-radius: 5px;
+            z-index: 100;
         }
         
-        /* Para móviles */
+        /* Estilo para el enlace de la primera imagen */
+        .imagen-container a {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Ajustes para móviles */
         @media (max-width: 768px) {
-            .imagen-container img {
-                width: 100%;
-                height: auto;
-            }
-        }
-        
-        /* Para PC */
-        @media (min-width: 769px) {
-            .imagen-container img {
-                height: 100%;
-                width: auto;
+            .overlay-text {
+                font-size: 18px;
+                top: 10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="imagen-container">
-        <a href="www.cerrajerianewen.com" target="_blank">
-        <img src="4.png" alt="" id="" >
+        <a href="https://www.cerrajerianewen.com" target="_blank">
+            <img src="4.png" alt="Inicio">
         </a>
-        <!-- Imagen principal (2.png) -->
+        
+        <!-- Imagen principal -->
         <img src="2.png" alt="+543412158780" id="responsive-image">
         
         <!-- Overlay con el número de teléfono -->
@@ -97,7 +102,7 @@
       const overlay = document.getElementById('phoneOverlay');
       overlay.textContent = img.alt;
       
-      // Opcional: Hacer el número clickeable para llamar
+      // Hacer el número clickeable para llamar
       overlay.style.cursor = 'pointer';
       overlay.addEventListener('click', function() {
           if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
