@@ -21,29 +21,77 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow-x: hidden; /* Evita scroll horizontal */
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
         }
         
         .image-container {
             width: 100%;
-            min-height: 100vh; /* Altura mínima = pantalla completa */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centra horizontalmente */
-            justify-content: flex-start; /* Alinea al inicio (evita centrado forzado) */
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
         }
         
-        /* Estilo para imágenes largas (evita zoom) */
         #headerimg, #responsive-image, #inicio, #quien {
-            max-width: 100%; /* Máximo ancho = pantalla */
-            width: auto; /* Mantiene proporción original */
-            height: auto; /* Evita deformación */
+            max-width: 100%;
+            width: auto;
+            height: auto;
             display: block;
         }
         
-        /* Opcional: Añade espacio entre imágenes si es necesario */
         .image-container img {
             margin-bottom: 20px;
+        }
+        
+        /* Contenedor relativo para la imagen de urgencias */
+        .urgencias-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        /* Botón de llamada sobre urgencias */
+        .llamar-urgencia {
+            position: absolute;
+            bottom: 20%; /* Posición vertical (ajustar según necesidad) */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(200, 0, 0, 0.8);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border: 2px solid white;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .llamar-urgencia:hover {
+            background: rgba(230, 0, 0, 0.9);
+            transform: translateX(-50%) scale(1.05);
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(200, 0, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(200, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(200, 0, 0, 0); }
+        }
+        
+        @media (max-width: 768px) {
+            .llamar-urgencia {
+                font-size: 18px;
+                padding: 10px 20px;
+                bottom: 15%;
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -52,7 +100,14 @@
         <a href="https://www.cerrajerianewen.com/quien/quien.html" target="_blank">
             <img src="3.png" alt="" id="quien">
         </a>
-        <img src="urgencias.png" alt="Contenido visual" id="responsive-image">
+        
+        <div class="urgencias-container">
+            <img src="urgencias.png" alt="Servicio de urgencias" id="responsive-image">
+            <a href="tel:+543412158780" class="llamar-urgencia">
+                📞 LLAMAR URGENCIA: +54 341 2158780
+            </a>
+        </div>
+        
         <img src="body1.png" alt="" id="">
     </div>
 </body>
