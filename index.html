@@ -8,8 +8,6 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-404833313');
-    </script>
-    <script>
       gtag('config', 'AW-404833313/QcbjCOmH0esaEKGIhcEB', {
         'phone_conversion_number': '+543412158780'
       });
@@ -23,7 +21,7 @@
             height: 100%;
             overflow-x: hidden;
             font-family: Arial, sans-serif;
-            background-color: #000; /* Fondo negro para mejor contraste */
+            background-color: #000;
         }
         
         .image-container {
@@ -35,7 +33,6 @@
             justify-content: flex-start;
         }
         
-        /* Estilo para todas las imágenes */
         .image-container img {
             max-width: 100%;
             width: auto;
@@ -44,7 +41,6 @@
             margin-bottom: 20px;
         }
         
-        /* Contenedor especial para urgencias con posición relativa */
         .urgencias-wrapper {
             position: relative;
             display: flex;
@@ -53,13 +49,12 @@
             margin-bottom: 20px;
         }
         
-        /* Botón de llamada de urgencia - AHORA VERDE */
         .llamar-urgencia {
             position: absolute;
             bottom: 20%;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 180, 0, 0.8); /* Verde intenso */
+            background: rgba(0, 180, 0, 0.8);
             color: white;
             padding: 12px 25px;
             border-radius: 50px;
@@ -75,13 +70,8 @@
             white-space: nowrap;
         }
         
-        .llamar-urgencia:hover {
-            background: rgba(0, 200, 0, 0.9); /* Verde más claro al hover */
-            transform: translateX(-50%) scale(1.05);
-        }
-        
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0.7); } /* Verde */
+            0% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(0, 180, 0, 0); }
             100% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0); }
         }
@@ -101,11 +91,11 @@
             <img src="3.png" alt="Quiénes somos">
         </a>
         
-        <!-- Contenedor para urgencias con botón -->
+        <!-- Contenedor para urgencias con botón fijo -->
         <div class="urgencias-wrapper">
             <img src="urgencias.png" alt="Servicio de urgencias 24 horas">
             <a href="tel:+543412158780" class="llamar-urgencia">
-                📞 LLAMAR URGENCIA: +54 341 2158780
+                📞 LLAMAR URGENCIA: 215 8780
             </a>
         </div>
         
