@@ -25,6 +25,7 @@
             height: 100%;
             overflow-x: hidden;
             background-color: #000;
+            font-family: Arial, sans-serif;
         }
         
         /* Contenedor principal */
@@ -35,6 +36,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
+            position: relative;
         }
         
         /* Estilo para todas las imágenes */
@@ -42,63 +44,72 @@
             width: 100%;
             height: auto;
             display: block;
-            object-fit: contain;
         }
         
-        /* Overlay del número de teléfono */
-        .overlay-text {
-            position: fixed;
-            top: 20px;
+        /* Contenedor para imagen con botón de urgencia */
+        .urgencias-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        
+        /* Botón de llamada de urgencia */
+        .llamar-urgencia {
+            position: absolute;
+            bottom: 20%;
             left: 50%;
             transform: translateX(-50%);
+            background: rgba(200, 0, 0, 0.8);
             color: white;
-            font-size: 24px;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 20px;
             font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 15px;
-            border-radius: 5px;
-            z-index: 100;
+            text-decoration: none;
             cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border: 2px solid white;
+            animation: pulse 1.5s infinite;
+            white-space: nowrap;
+            z-index: 100;
+        }
+        
+        .llamar-urgencia:hover {
+            background: rgba(230, 0, 0, 0.9);
+            transform: translateX(-50%) scale(1.05);
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(200, 0, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(200, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(200, 0, 0, 0); }
         }
         
         /* Ajustes para móviles */
         @media (max-width: 768px) {
-            .overlay-text {
-                font-size: 18px;
-                top: 10px;
+            .llamar-urgencia {
+                font-size: 16px;
+                padding: 10px 20px;
+                bottom: 15%;
             }
         }
     </style>
 </head>
 <body>
     <div class="imagen-container">
-        <a href="https://www.cerrajerianewen.com" target="_blank">
-            <img src="4.png" alt="Inicio">
-        </a>
+        <!-- Imagen 4.png con botón de urgencia -->
+        <div class="urgencias-wrapper">
+            <a href="https://www.cerrajerianewen.com" target="_blank">
+                <img src="4.png" alt="Inicio">
+            </a>
+            <a href="tel:+543412158780" class="llamar-urgencia">
+                📞 LLAMAR URGENCIA: +54 341 2158780
+            </a>
+        </div>
         
         <!-- Imagen principal -->
-        <img src="2.png" alt="+543412158780">
-        
-        <!-- Overlay con el número de teléfono -->
-        <div class="overlay-text" id="phoneOverlay"></div>
+        <img src="2.png" alt="Servicios de cerrajería">
     </div>
-
-    <script>
-      // Mostrar el número del 'alt' en el overlay
-      const img = document.querySelector('.imagen-container img:not(a img)');
-      const overlay = document.getElementById('phoneOverlay');
-      overlay.textContent = img.alt;
-      
-      // Hacer el número clickeable para llamar
-      overlay.addEventListener('click', function() {
-          if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-              window.location.href = `tel:${img.alt.replace(/\D/g, '')}`;
-          } else {
-              navigator.clipboard.writeText(img.alt);
-              alert(`Número copiado: ${img.alt}`);
-          }
-      });
-    </script>
 </body>
 </html>
