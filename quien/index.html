@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cerrajeria newen</title>
     <style>
-        /* Reset básico */
         body, html {
             margin: 0;
             padding: 0;
@@ -28,7 +27,6 @@
             font-family: Arial, sans-serif;
         }
         
-        /* Contenedor principal */
         .imagen-container {
             width: 100%;
             min-height: 100vh;
@@ -39,26 +37,23 @@
             position: relative;
         }
         
-        /* Estilo para todas las imágenes */
         .imagen-container img {
             width: 100%;
             height: auto;
             display: block;
         }
         
-        /* Contenedor para imagen con botón de urgencia */
         .urgencias-wrapper {
             position: relative;
             width: 100%;
         }
         
-        /* Botón de llamada de urgencia - VERDE */
         .llamar-urgencia {
             position: absolute;
             bottom: 20%;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 180, 0, 0.9); /* Verde intenso */
+            background: rgba(0, 180, 0, 0.8);
             color: white;
             padding: 12px 25px;
             border-radius: 50px;
@@ -75,18 +70,12 @@
             z-index: 100;
         }
         
-        .llamar-urgencia:hover {
-            background: rgba(0, 200, 0, 0.9); /* Verde más claro al hover */
-            transform: translateX(-50%) scale(1.05);
-        }
-        
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0.7); } /* Verde */
+            0% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(0, 180, 0, 0); }
             100% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0); }
         }
         
-        /* Ajustes para móviles */
         @media (max-width: 768px) {
             .llamar-urgencia {
                 font-size: 16px;
@@ -98,13 +87,13 @@
 </head>
 <body>
     <div class="imagen-container">
-        <!-- Imagen 4.png con botón de urgencia -->
+        <!-- Imagen 4.png con botón fijo -->
         <div class="urgencias-wrapper">
             <a href="https://www.cerrajerianewen.com" target="_blank">
                 <img src="4.png" alt="Inicio">
             </a>
             <a href="tel:+543412158780" class="llamar-urgencia">
-                📞 LLAMAR URGENCIA: +54 341 2158780
+                📞 LLAMAR URGENCIA: 215 8780
             </a>
         </div>
         
