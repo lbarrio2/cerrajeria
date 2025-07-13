@@ -37,18 +37,11 @@
             justify-content: flex-start;
         }
         
-        /* Estilo para las imágenes */
+        /* Estilo para todas las imágenes */
         .imagen-container img {
-            max-width: 100%;
-            width: auto;
-            height: auto;
-            display: block;
-        }
-        
-        /* Asegura que la imagen principal ocupe el ancho completo */
-        #responsive-image {
             width: 100%;
             height: auto;
+            display: block;
             object-fit: contain;
         }
         
@@ -66,12 +59,7 @@
             padding: 5px 15px;
             border-radius: 5px;
             z-index: 100;
-        }
-        
-        /* Estilo para el enlace de la primera imagen */
-        .imagen-container a {
-            width: 100%;
-            display: block;
+            cursor: pointer;
         }
         
         /* Ajustes para móviles */
@@ -90,7 +78,7 @@
         </a>
         
         <!-- Imagen principal -->
-        <img src="2.png" alt="+543412158780" id="responsive-image">
+        <img src="2.png" alt="+543412158780">
         
         <!-- Overlay con el número de teléfono -->
         <div class="overlay-text" id="phoneOverlay"></div>
@@ -98,12 +86,11 @@
 
     <script>
       // Mostrar el número del 'alt' en el overlay
-      const img = document.getElementById('responsive-image');
+      const img = document.querySelector('.imagen-container img:not(a img)');
       const overlay = document.getElementById('phoneOverlay');
       overlay.textContent = img.alt;
       
       // Hacer el número clickeable para llamar
-      overlay.style.cursor = 'pointer';
       overlay.addEventListener('click', function() {
           if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
               window.location.href = `tel:${img.alt.replace(/\D/g, '')}`;
