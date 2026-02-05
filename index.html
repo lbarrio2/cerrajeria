@@ -11,6 +11,16 @@
       gtag('config', 'AW-404833313/QcbjCOmH0esaEKGIhcEB', {
         'phone_conversion_number': '+543412158780'
       });
+        document.addEventListener('contextmenu', function(event) {
+    // Esto previene que aparezca el menú contextual normal del navegador
+    event.preventDefault();
+    
+    // Muestra un mensaje al usuario
+    alert('¡Tus consultas son bienvenidas! Cerrajero 24 hs 341 215 8780');
+    
+    // Para más control, puedes mostrar el mensaje en un elemento HTML específico:
+    // mensajeDiv.textContent = '¡Clic derecho detectado!';
+});
     </script>
     
     <style>
