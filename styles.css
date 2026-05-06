@@ -13,6 +13,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+     .llamar-urgencia {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 180, 0, 0.8);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border: 2px solid white;
+            animation: pulse 1.5s infinite;
+            white-space: nowrap;
+        }
 }
 
 html {
