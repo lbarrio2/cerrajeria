@@ -1,11 +1,15 @@
-/* Variables de color */
+/* ==========================================
+   🟢 TEMA MATRIX - CERRAJERÍA NEWEN 🟢
+   ========================================== */
+
+/* Variables de color - MATRIX */
 :root {
-    --primary-color: #d4af37;
-    --secondary-color: #1a1a1a;
-    --tertiary-color: #2a2a2a;
-    --text-color: #333;
-    --light-bg: #f5f5f5;
-    --white: #fff;
+    --primary-color: #00ff00;      /* Verde Matrix puro */
+    --secondary-color: #000000;    /* Negro absoluto */
+    --tertiary-color: #0a0a0a;     /* Negro muy oscuro */
+    --text-color: #00ff00;         /* Texto verde */
+    --light-bg: #0d0d0d;           /* Fondo oscuro */
+    --white: #00ff00;              /* "Blanco" es verde */
 }
 
 /* Reset y Estilos Globales */
@@ -13,48 +17,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
- .urgencias-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin-bottom: 20px;
-     margin-top: 30px;
-    margin-bottom: 20px;
-        }
-    
-     .llamar-urgencia {
-            position: absolute;
-            bottom: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 180, 0, 0.8);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            border: 2px solid white;
-            animation: pulse 1.5s infinite;
-            white-space: nowrap;
-        }
-     @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 180, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0); }
-        }
-        
-        @media (max-width: 768px) {
-            .llamar-urgencia {
-                font-size: 16px;
-                padding: 10px 20px;
-                bottom: 15%;
-            }
+}
+
+/* Canvas Matrix - Código cayendo */
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
 }
 
 html {
@@ -62,10 +35,19 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Courier New', monospace;  /* Fuente de consola */
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--white);
+    background-color: var(--secondary-color);
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 0, 0.03),
+            rgba(0, 255, 0, 0.03) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
 .container {
@@ -74,7 +56,7 @@ body {
     padding: 0 20px;
 }
 
-/* Navegación */
+/* ==================== NAVEGACIÓN ==================== */
 .navbar {
     background-color: var(--secondary-color);
     color: var(--white);
@@ -82,7 +64,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
 }
 
 .nav-container {
@@ -101,10 +84,12 @@ body {
     font-weight: bold;
     color: var(--primary-color);
     gap: 0.5rem;
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .logo i {
     font-size: 2rem;
+    animation: glow 2s ease-in-out infinite;
 }
 
 .nav-menu {
@@ -116,12 +101,13 @@ body {
 .nav-menu a {
     color: var(--white);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     font-weight: 500;
 }
 
 .nav-menu a:hover {
     color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .hamburger {
@@ -138,7 +124,7 @@ body {
     transition: 0.3s;
 }
 
-/* Hero Section */
+/* ==================== HERO SECTION ==================== */
 .hero {
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--tertiary-color) 100%);
     color: var(--white);
@@ -150,6 +136,26 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 0, 0.03) 2px,
+            rgba(0, 255, 0, 0.03) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
 }
 
 .hero-background {
@@ -157,55 +163,116 @@ body {
     right: -100px;
     top: -100px;
     font-size: 400px;
-    opacity: 0.05;
+    opacity: 0.02;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 600px;
 }
 
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+    letter-spacing: 3px;
+    animation: flicker 0.3s infinite;
 }
 
 .hero p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
-/* Botones */
+/* ==================== BOTONES ==================== */
 .btn {
     padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    border-radius: 0px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
+    background-color: transparent;
+    color: var(--primary-color);
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    box-shadow: 0 0 10px var(--primary-color);
 }
 
 .btn-primary:hover {
-    background-color: #e8c547;
+    background-color: #00dd00;
+    box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 10px var(--secondary-color);
 }
 
-/* Sección de Servicios */
+/* ==================== URGENCIAS ==================== */
+.urgencias-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.llamar-urgencia {
+    position: relative;
+    background: rgba(0, 255, 0, 0.1);
+    color: var(--primary-color);
+    padding: 15px 30px;
+    border-radius: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+    animation: pulse-matrix 1.5s infinite;
+    white-space: nowrap;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+.llamar-urgencia:hover {
+    background: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 30px var(--primary-color), inset 0 0 10px var(--primary-color);
+}
+
+@keyframes pulse-matrix {
+    0% { 
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.5), inset 0 0 5px rgba(0, 255, 0, 0.2);
+    }
+    50% { 
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.8), inset 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+    100% { 
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.5), inset 0 0 5px rgba(0, 255, 0, 0.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .llamar-urgencia {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+}
+
+/* ==================== SERVICIOS ==================== */
 .servicios {
     padding: 80px 20px;
-    background-color: var(--light-bg);
+    background-color: var(--tertiary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .servicios h2,
@@ -215,7 +282,9 @@ body {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    text-shadow: 0 0 20px var(--primary-color);
+    letter-spacing: 2px;
 }
 
 .servicios-grid {
@@ -225,17 +294,19 @@ body {
 }
 
 .servicio-card {
-    background-color: var(--white);
+    background-color: transparent;
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid var(--primary-color);
+    border-radius: 0px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2), inset 0 0 20px rgba(0, 255, 0, 0.05);
     transition: all 0.3s ease;
     border-top: 4px solid var(--primary-color);
 }
 
 .servicio-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.5), inset 0 0 20px rgba(0, 255, 0, 0.1);
+    background-color: rgba(0, 255, 0, 0.05);
 }
 
 .servicio-icon {
@@ -243,17 +314,20 @@ body {
     color: var(--primary-color);
     margin-bottom: 1rem;
     text-align: center;
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .servicio-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .servicio-card p {
     margin-bottom: 1rem;
-    color: #666;
+    color: var(--primary-color);
+    opacity: 0.9;
 }
 
 .servicio-card ul {
@@ -263,20 +337,22 @@ body {
 
 .servicio-card ul li {
     padding: 0.5rem 0;
-    color: #666;
-    border-bottom: 1px solid var(--light-bg);
+    color: var(--primary-color);
+    border-bottom: 1px solid rgba(0, 255, 0, 0.2);
 }
 
 .servicio-card ul li:before {
-    content: "✓ ";
+    content: "► ";
     color: var(--primary-color);
     font-weight: bold;
     margin-right: 0.5rem;
 }
 
-/* Galería */
+/* ==================== GALERÍA ==================== */
 .galeria {
     padding: 80px 20px;
+    background-color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .galeria-grid {
@@ -288,20 +364,24 @@ body {
 .galeria-item {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0px;
     height: 250px;
     cursor: pointer;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
 }
 
 .galeria-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    filter: grayscale(100%) brightness(0.8) contrast(1.2);
 }
 
 .galeria-item:hover img {
     transform: scale(1.1);
+    filter: grayscale(0%) brightness(1) contrast(1.3);
 }
 
 .galeria-overlay {
@@ -309,11 +389,13 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0,0,0,0.8);
-    color: var(--white);
+    background: rgba(0, 0, 0, 0.9);
+    color: var(--primary-color);
     padding: 1.5rem;
     transform: translateY(100%);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    border-top: 2px solid var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .galeria-item:hover .galeria-overlay {
@@ -325,10 +407,11 @@ body {
     font-weight: 500;
 }
 
-/* Por qué elegirnos */
+/* ==================== POR QUÉ ELEGIRNOS ==================== */
 .por-que-elegirnos {
     padding: 80px 20px;
-    background-color: var(--light-bg);
+    background-color: var(--tertiary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .features-grid {
@@ -340,27 +423,40 @@ body {
 .feature {
     text-align: center;
     padding: 2rem;
+    border: 2px solid rgba(0, 255, 0, 0.2);
+    border-radius: 0px;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
 }
 
 .feature i {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .feature h4 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .feature p {
-    color: #666;
+    color: var(--primary-color);
+    opacity: 0.8;
 }
 
-/* Sección Contacto */
+/* ==================== CONTACTO ==================== */
 .contacto {
     padding: 80px 20px;
+    background-color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .contacto-grid {
@@ -372,7 +468,8 @@ body {
 .contacto-info h3 {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .info-item {
@@ -385,22 +482,26 @@ body {
     font-size: 1.5rem;
     color: var(--primary-color);
     min-width: 30px;
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .info-item h4 {
     margin-bottom: 0.25rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .info-item p {
-    color: #666;
+    color: var(--primary-color);
+    opacity: 0.8;
 }
 
-/* Formulario */
+/* ==================== FORMULARIO ==================== */
 .contacto-form {
-    background-color: var(--light-bg);
+    background-color: rgba(0, 255, 0, 0.05);
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 0px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
 }
 
 .form-group {
@@ -412,11 +513,19 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    border-radius: 0px;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--primary-color);
+}
+
+.form-group input::placeholder,
+.form-group select::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(0, 255, 0, 0.5);
 }
 
 .form-group input:focus,
@@ -424,18 +533,21 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color), inset 0 0 5px rgba(0, 255, 0, 0.1);
 }
 
 .contacto-form button {
     width: 100%;
 }
 
-/* Footer */
+/* ==================== FOOTER ==================== */
 .footer {
     background-color: var(--secondary-color);
-    color: var(--white);
+    color: var(--primary-color);
     text-align: center;
     padding: 2rem;
+    border-top: 2px solid var(--primary-color);
+    box-shadow: 0 -10px 20px rgba(0, 255, 0, 0.1);
 }
 
 .footer .container {
@@ -452,14 +564,32 @@ body {
 .social-links a {
     color: var(--white);
     font-size: 1.5rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .social-links a:hover {
-    color: var(--primary-color);
+    color: #00dd00;
+    text-shadow: 0 0 20px var(--primary-color);
+    transform: scale(1.2);
 }
 
-/* Responsivo */
+/* ==================== ANIMACIONES ==================== */
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px var(--primary-color); }
+    50% { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+    }
+    20%, 24%, 55% {
+        text-shadow: 0 0 10px var(--primary-color);
+    }
+}
+
+/* ==================== RESPONSIVO ==================== */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -475,6 +605,7 @@ body {
         background-color: var(--secondary-color);
         padding: 1rem;
         gap: 0;
+        border-bottom: 2px solid var(--primary-color);
     }
 
     .nav-menu.active {
