@@ -33,6 +33,18 @@
             animation: pulse 1.5s infinite;
             white-space: nowrap;
         }
+     @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 180, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 180, 0, 0); }
+        }
+        
+        @media (max-width: 768px) {
+            .llamar-urgencia {
+                font-size: 16px;
+                padding: 10px 20px;
+                bottom: 15%;
+            }
 }
 
 html {
