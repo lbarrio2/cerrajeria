@@ -13,6 +13,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+ .urgencias-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    
      .llamar-urgencia {
             position: absolute;
             bottom: 20%;
