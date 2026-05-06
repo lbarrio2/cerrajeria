@@ -590,6 +590,12 @@ body {
 }
 
 /* ==================== RESPONSIVO ==================== */
+@media (max-width: 1024px) {
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -616,6 +622,27 @@ body {
         padding: 0.5rem 0;
     }
 
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .logo i {
+        font-size: 1.5rem;
+    }
+
+    .hero {
+        padding: 60px 15px;
+        min-height: 400px;
+    }
+
     .hero h1 {
         font-size: 2rem;
     }
@@ -624,11 +651,37 @@ body {
         font-size: 1rem;
     }
 
+    .servicios,
+    .galeria,
+    .por-que-elegirnos,
+    .contacto {
+        padding: 60px 15px;
+    }
+
     .servicios h2,
     .galeria h2,
     .por-que-elegirnos h2,
     .contacto h2 {
         font-size: 1.8rem;
+    }
+
+    .servicios-grid,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .galeria-item {
+        height: 200px;
+    }
+
+    iframe {
+        width: 100% !important;
+        height: 300px !important;
     }
 
     .contacto-grid {
@@ -644,5 +697,35 @@ body {
         font-size: 200px;
         right: -50px;
         top: -50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .servicios h2,
+    .galeria h2,
+    .por-que-elegirnos h2,
+    .contacto h2 {
+        font-size: 1.5rem;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .llamar-urgencia {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+
+    .container {
+        padding: 0 15px;
     }
 }
