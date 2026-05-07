@@ -1,3 +1,7 @@
+// ==========================================
+// 🟢 SCRIPT MATRIX - CERRAJERÍA NEWEN 🟢
+// ==========================================
+
 // 🟢 EFECTO MATRIX - Código Cayendo 🟢
 const canvas = document.getElementById('matrixCanvas');
 if (canvas) {
@@ -43,73 +47,42 @@ if (canvas) {
     });
 }
 
-// Menú Hamburguesa
+// ==================== MENÚ HAMBURGUESA ====================
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
-
-// Cerrar menú al hacer clic en un enlace
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        
+        // Animar las líneas del hamburguesa
+        const spans = hamburger.querySelectorAll('span');
+        spans.forEach((span, index) => {
+            if (navMenu.classList.contains('active')) {
+                if (index === 0) span.style.transform = 'rotate(45deg) translateY(12px)';
+                if (index === 1) span.style.opacity = '0';
+                if (index === 2) span.style.transform = 'rotate(-45deg) translateY(-12px)';
+            } else {
+                span.style.transform = 'none';
+                span.style.opacity = '1';
+            }
+        });
     });
-});
 
-// Formulario de Contacto
-const contactoForm = document.getElementById('contactoForm');
-
-if (contactoForm) {
-    contactoForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Obtener valores del formulario
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const telefono = document.getElementById('telefono').value.trim();
-        const servicio = document.getElementById('servicio').value;
-        const mensaje = document.getElementById('mensaje').value.trim();
-
-        // Validación básica
-        if (!nombre || !email || !telefono || !servicio || !mensaje) {
-            alert('⚠️ Por favor completa todos los campos');
-            return;
-        }
-
-        // Validar email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('⚠️ Por favor ingresa un email válido');
-            return;
-        }
-
-        // Validar teléfono (solo números)
-        const telefonoRegex = /^[0-9\s\-\+\(\)]+$/;
-        if (!telefonoRegex.test(telefono)) {
-            alert('⚠️ Por favor ingresa un teléfono válido');
-            return;
-        }
-
-        // Mensaje de confirmación
-        alert(`✅ ¡Gracias ${nombre}! Hemos recibido tu consulta.\nNos pondremos en contacto a ${telefono} o ${email}`);
-
-        // Limpiar formulario
-        contactoForm.reset();
-
-        // Aquí podrías enviar los datos a un servidor
-        console.log({
-            nombre,
-            email,
-            telefono,
-            servicio,
-            mensaje
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            const spans = hamburger.querySelectorAll('span');
+            spans.forEach(span => {
+                span.style.transform = 'none';
+                span.style.opacity = '1';
+            });
         });
     });
 }
 
-// Animaciones al hacer scroll
+// ==================== ANIMACIONES AL SCROLL ====================
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -132,7 +105,7 @@ document.querySelectorAll('.servicio-card, .galeria-item, .feature').forEach(el 
     observer.observe(el);
 });
 
-// Marcar sección activa en la navegación
+// ==================== MARCAR SECCIÓN ACTIVA ====================
 window.addEventListener('scroll', () => {
     let current = '';
 
@@ -153,7 +126,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Smooth scroll adicional para mayor compatibilidad
+// ==================== SMOOTH SCROLL ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
