@@ -33,6 +33,19 @@
 html {
     scroll-behavior: smooth;
 }
+.mapa-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.mapa-container iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border-radius: 12px;
+}
 .numero-contacto {
     font-size: 18px;
     font-family: 'Orbitron', sans-serif;
