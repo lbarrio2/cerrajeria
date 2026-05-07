@@ -18,7 +18,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+img,
+iframe,
+video {
+    max-width: 100%;
+}
 /* Canvas Matrix - Código cayendo */
 #matrixCanvas {
     position: fixed;
@@ -32,6 +36,11 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
 }
 .mapa-container {
     display: flex;
@@ -284,7 +293,7 @@ body {
     text-align: center;
     border: 2px solid var(--primary-color);
     animation: pulse-matrix 1.5s infinite;
-    white-space: nowrap;
+    white-space: normal;
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
     text-shadow: 0 0 5px var(--primary-color);
 }
